@@ -39,6 +39,28 @@ const {
 } = require("../helper/addon/insta/insta.js");
 const logger = require("../utils/logger.js");
 
+function resolveLanguagePath(languagesDir, requestedCode) {
+  const safeCode = path.basename(String(requestedCode || "English")).replace(
+    /\.json$/i,
+    "",
+  );
+  const requestedFile = `${safeCode}.json`;
+  const directPath = path.join(languagesDir, requestedFile);
+
+  if (fs.existsSync(directPath)) {
+    return directPath;
+  }
+
+  const files = fs
+    .readdirSync(languagesDir)
+    .filter((file) => file.toLowerCase().endsWith(".json"));
+  const match = files.find(
+    (file) => file.toLowerCase() === requestedFile.toLowerCase(),
+  );
+
+  return match ? path.join(languagesDir, match) : null;
+}
+
 router.get("/get_all", async (req, res) => {
   try {
     const data = getAllSocketData();
@@ -63,13 +85,18 @@ router.get("/return_module", async (req, res) => {
 // Modified backend route to support pagination and search
 router.get("/get-one-translation", async (req, res) => {
   try {
-    const cirDir = process.cwd();
+    const languagesDir = path.join(process.cwd(), "languages");
     const code = req.query.code;
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 0; // 0 means no limit, return all
     const search = req.query.search || "";
+    const languagePath = resolveLanguagePath(languagesDir, code);
 
-    fs.readFile(`${cirDir}/languages/${code}.json`, "utf8", (err, lang) => {
+    if (!languagePath) {
+      return res.json({ notfound: true });
+    }
+
+    fs.readFile(languagePath, "utf8", (err, lang) => {
       if (err) {
         logger.log("File read failed:", err);
         res.json({ notfound: true });

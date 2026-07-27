@@ -35,8 +35,8 @@ const adminValidator = async (req, res, next) => {
 
       const admin = getAdmin[0];
 
-      // tokenVersion check — invalidates all old tokens on password change
-      if (decode.tokenVersion !== admin.tokenVersion) {
+      // Older installs may not have tokenVersion yet; treat missing values as 0.
+      if (Number(decode.tokenVersion ?? 0) !== Number(admin.tokenVersion ?? 0)) {
         return res.json({
           success: false,
           msg: "Session expired. Please login again.",
