@@ -1,0 +1,137 @@
+{
+  "primary": {
+    "main": "#00A884",
+    "light": "#E6F6F2",
+    "dark": "#007A63",
+    "contrastText": "#ffffff"
+  },
+  "secondary": {
+    "main": "#25D366",
+    "light": "#DFF7E9",
+    "dark": "#1DA851",
+    "contrastText": "#ffffff"
+  },
+  "success": {
+    "main": "#00A884",
+    "light": "#E6F6F2",
+    "dark": "#007A63",
+    "contrastText": "#ffffff"
+  },
+  "info": {
+    "main": "#128C7E",
+    "light": "#E0F2F1",
+    "dark": "#0E6B61",
+    "contrastText": "#ffffff"
+  },
+  "warning": {
+    "main": "#F4B400",
+    "light": "#FEF7E0",
+    "dark": "#C49000",
+    "contrastText": "#111B21"
+  },
+  "error": {
+    "main": "#E53935",
+    "light": "#FCE8E6",
+    "dark": "#B71C1C",
+    "contrastText": "#ffffff"
+  },
+  "grey": {
+    "50": "#F8F9FA",
+    "100": "#F1F3F4",
+    "200": "#E4E6EB",
+    "300": "#DADCE0",
+    "400": "#9AA0A6",
+    "500": "#5F6368",
+    "600": "#3C4043",
+    "700": "#202124",
+    "800": "#1A1A1A",
+    "900": "#0F0F0F"
+  },
+  "text": {
+    "primary": "#202124",
+    "secondary": "#5F6368"
+  },
+  "divider": "#E4E6EB",
+  "background": {
+    "default": "#F8F9FA",
+    "paper": "#FFFFFF"
+  },
+  "action": {
+    "hover": "#F1F3F4",
+    "hoverOpacity": 0.04,
+    "disabledBackground": "rgba(32,33,36,0.08)"
+  },
+  "components": {
+    "MuiOutlinedInput": {
+      "styleOverrides": {
+        "input": { "color": "#202124" }
+      }
+    },
+    "MuiInputBase": {
+      "styleOverrides": {
+        "input": { "color": "#202124" }
+      }
+    },
+    "MuiButton": {
+      "defaultProps": { "disableElevation": true },
+      "styleOverrides": {
+        "root": {
+          "borderRadius": 6,
+          "textTransform": "none",
+          "fontWeight": 500
+        },
+        "contained": {
+          "boxShadow": "none",
+          "&:hover": {
+            "boxShadow": "0 2px 8px rgba(0,0,0,0.15)"
+          }
+        },
+        "outlined": {
+          "borderWidth": "1px",
+          "&:hover": {
+            "backgroundColor": "rgba(0,168,132,0.05)"
+          }
+        }
+      }
+    },
+    "MuiCard": {
+      "styleOverrides": {
+        "root": {
+          "borderRadius": 12,
+          "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+        }
+      }
+    },
+    "MuiDialog": {
+      "styleOverrides": {
+        "paper": { "borderRadius": 12 }
+      }
+    },
+    "MuiChip": {
+      "styleOverrides": {
+        "root": { "borderRadius": 12, "fontWeight": 500 }
+      }
+    }
+  },
+  "palette": {
+    "mode": "light",
+    "common": { "black": "#000000", "white": "#ffffff" },
+    "input": { "text": "#202124" }
+  },
+  "typography": {
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": 14,
+    "fontWeightRegular": 400,
+    "fontWeightMedium": 500,
+    "fontWeightBold": 600,
+    "h1": { "fontWeight": 600, "fontSize": "2rem" },
+    "h2": { "fontWeight": 600, "fontSize": "1.75rem" },
+    "h3": { "fontWeight": 600, "fontSize": "1.5rem" },
+    "h4": { "fontWeight": 600, "fontSize": "1.25rem" },
+    "body1": { "fontSize": "0.875rem" },
+    "body2": { "fontSize": "0.75rem" },
+    "button": { "textTransform": "none", "fontWeight": 500 }
+  },
+  "spacing": 8,
+  "shape": { "borderRadius": 6 }
+}

@@ -1,0 +1,116 @@
+{
+  "themes": [
+    {
+      "id": "default",
+      "name": "Default Theme",
+      "description": "Factory default — protected and cannot be deleted",
+      "isProtected": true,
+      "createdAt": "2026-03-16T13:44:16.755Z",
+      "updatedAt": "2026-03-16T13:44:16.755Z"
+    },
+    {
+      "id": "theme-sunset",
+      "name": "Sunset",
+      "description": "Warm amber and rose tones inspired by golden hour",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:42:00.000Z",
+      "updatedAt": "2026-03-16T19:42:00.000Z"
+    },
+    {
+      "id": "theme-forest",
+      "name": "Forest",
+      "description": "Deep greens and earthy tones inspired by ancient woodland",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:42:00.000Z",
+      "updatedAt": "2026-03-16T19:42:00.000Z"
+    },
+    {
+      "id": "theme-violet",
+      "name": "Violet",
+      "description": "Rich purple and lavender tones inspired by twilight and amethyst",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:43:00.000Z",
+      "updatedAt": "2026-03-16T19:43:00.000Z"
+    },
+    {
+      "id": "theme-sharp",
+      "name": "Sharp",
+      "description": "Brutalist design — hard edges, zero radius, bold and unapologetic",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-bubbly",
+      "name": "Bubbly",
+      "description": "Maximum roundness, soft shadows, playful and approachable UI",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-glass",
+      "name": "Glass",
+      "description": "Frosted glass aesthetic — translucent surfaces, heavy blur, airy depth",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-editorial",
+      "name": "Editorial",
+      "description": "Newspaper-inspired — serif typography, tight spacing, high contrast, minimal chrome",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-cyber",
+      "name": "Cyber",
+      "description": "Terminal-inspired — neon glow effects, monospace font, dark-first hacker aesthetic",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-zen",
+      "name": "Zen",
+      "description": "Maximum whitespace, hairline borders, near-invisible shadows — calm and meditative",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-same",
+      "name": "Same",
+      "description": "Smae theme but look like new fresh",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-darkocean",
+      "name": "dark Ocean",
+      "description": "Bluish design with ocean feel",
+      "isProtected": false,
+      "createdAt": "2026-03-16T19:50:00.000Z",
+      "updatedAt": "2026-03-16T19:50:00.000Z"
+    },
+    {
+      "id": "theme-wa-midnight",
+      "name": "WA Midnight",
+      "description": "Dark mode first — WhatsApp green on deep navy-black backgrounds, easy on the eyes for long sessions",
+      "isProtected": false,
+      "createdAt": "2026-03-28T00:00:00.000Z",
+      "updatedAt": "2026-03-28T00:00:00.000Z"
+    },
+    {
+      "id": "theme-wa-new",
+      "name": "WA New",
+      "description": "Dark mode first — WhatsApp green on deep navy-black backgrounds, easy on the eyes for long sessions",
+      "isProtected": false,
+      "createdAt": "2026-03-28T00:00:00.000Z",
+      "updatedAt": "2026-03-28T00:00:00.000Z"
+    }
+  ]
+}
