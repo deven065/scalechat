@@ -8,7 +8,7 @@
 
   .MuiDrawer-root .MuiDrawer-paper,
   .MuiDrawer-paper {
-    width: min(76vw, 280px) !important;
+    width: min(260px, calc(100vw - 20px)) !important;
     max-width: calc(100vw - 20px) !important;
     min-width: 0 !important;
     box-sizing: border-box !important;
@@ -116,7 +116,7 @@
 @media (max-width: 480px) {
   .MuiDrawer-root .MuiDrawer-paper,
   .MuiDrawer-paper {
-    width: min(72vw, 268px) !important;
-    max-width: 268px !important;
+    width: min(260px, calc(100vw - 20px)) !important;
+    max-width: calc(100vw - 20px) !important;
   }
 }

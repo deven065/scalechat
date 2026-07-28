@@ -1,9 +1,25 @@
 (function () {
   var hiddenSidebarLabels = [
+    "INSTAGRAM",
+    "Instagram",
     "Instagram Config",
+    "Link Instagram",
+    "Insta DM Bot",
+    "Insta Comment DM",
+    "AI WHATSAPP CALLING",
+    "Create Call Flow",
+    "WA Call Logs",
+    "Setup WA Calls",
+    "WEBHOOK AUTOMATION",
+    "Manage Webhooks",
+    "Webhook Automation",
+    "Webhook Logs",
     "WA Embed Login",
     "Telegram Config",
   ];
+  var normalizedHiddenLabels = hiddenSidebarLabels.map(function (label) {
+    return label.toLowerCase();
+  });
 
   function isMenuItemCandidate(element) {
     if (!element || element === document.body) return false;
@@ -45,7 +61,7 @@
       {
         acceptNode: function (node) {
           var text = node.nodeValue && node.nodeValue.trim();
-          return hiddenSidebarLabels.indexOf(text) !== -1
+          return text && normalizedHiddenLabels.indexOf(text.toLowerCase()) !== -1
             ? NodeFilter.FILTER_ACCEPT
             : NodeFilter.FILTER_REJECT;
         },
