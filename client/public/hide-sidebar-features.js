@@ -14,6 +14,9 @@
     "Manage Webhooks",
     "Webhook Automation",
     "Webhook Logs",
+    "TELEGRAM PLUGIN",
+    "Telegram Plugin",
+    "Telegram Sessions",
     "WA Embed Login",
     "Telegram Config",
   ];
