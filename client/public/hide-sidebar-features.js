@@ -139,7 +139,7 @@
     if (!root) return;
 
     var marked = root.querySelectorAll(
-      "[data-wa-form-builder-panel], [data-wa-form-builder-container], [data-wa-form-builder-content], [data-wa-form-builder-layout], [data-wa-form-builder-section]",
+      "[data-wa-form-builder-panel], [data-wa-form-builder-container], [data-wa-form-builder-content], [data-wa-form-builder-layout], [data-wa-form-builder-section], [data-wa-form-live-preview-phone]",
     );
 
     marked.forEach(function (node) {
@@ -148,6 +148,7 @@
       node.removeAttribute("data-wa-form-builder-content");
       node.removeAttribute("data-wa-form-builder-layout");
       node.removeAttribute("data-wa-form-builder-section");
+      node.removeAttribute("data-wa-form-live-preview-phone");
     });
   }
 
@@ -284,6 +285,79 @@
 
   function getPanelHeader(panel, titleElement) {
     return getDirectChildContaining(panel, titleElement) || (panel.children && panel.children[0]);
+  }
+
+  function markLivePreviewPhone(previewSection) {
+    if (!previewSection) return;
+
+    var existing = previewSection.querySelectorAll("[data-wa-form-live-preview-phone]");
+    existing.forEach(function (node) {
+      node.removeAttribute("data-wa-form-live-preview-phone");
+    });
+
+    var anchorNode =
+      findTextNodeByContent("SCALECHAT Business", previewSection) ||
+      findTextNodeByContent("9:41", previewSection) ||
+      findTextNodeByContent("Preview Flow", previewSection);
+
+    if (!anchorNode) return;
+
+    var current = anchorNode.parentElement;
+    var best = null;
+    var fallback = null;
+
+    while (current && current !== previewSection) {
+      var rect = current.getBoundingClientRect();
+      var text = current.textContent || "";
+      var styles = window.getComputedStyle(current);
+      var borderWidth = parseFloat(styles.borderTopWidth) || 0;
+      var borderRadius = parseFloat(styles.borderTopLeftRadius) || 0;
+      var isPhoneFrame =
+        borderWidth >= 6 ||
+        borderRadius >= 20 ||
+        styles.overflow === "hidden";
+
+      if (
+        text.indexOf("9:41") !== -1 &&
+        text.indexOf("SCALECHAT Business") !== -1 &&
+        rect.width >= 180 &&
+        rect.width <= 420 &&
+        rect.height >= 180
+      ) {
+        if (!fallback || rect.width < fallback.getBoundingClientRect().width) {
+          fallback = current;
+        }
+
+        if (isPhoneFrame && (!best || rect.width < best.getBoundingClientRect().width)) {
+          best = current;
+        }
+      }
+
+      current = current.parentElement;
+    }
+
+    best = best || fallback;
+    if (!best) return;
+
+    setAttributeIfChanged(best, "data-wa-form-live-preview-phone", "true");
+    setImportantStyles(best, {
+      width: "min(390px, calc(100vw - 36px))",
+      "min-height": "min(760px, calc(100dvh - 190px))",
+      display: "flex",
+      "flex-direction": "column",
+      "max-width": "100%",
+      margin: "12px auto 30px",
+      transform: "none",
+      "transform-origin": "top center",
+    });
+
+    var body = best.children && best.children[3];
+    setImportantStyles(body, {
+      flex: "1 1 auto",
+      "min-height": "0px",
+      "max-height": "none",
+      overflow: "auto",
+    });
   }
 
   function getBuilderContent(panel) {
@@ -450,8 +524,9 @@
       } else if (section === "preview") {
         setImportantStyles(child, {
           order: "3",
-          "min-height": "360px",
+          "min-height": "430px",
         });
+        markLivePreviewPhone(child);
       }
     });
   }
@@ -564,6 +639,7 @@
     markDialogContainer(modal);
     markLikelyBuilderContent(panel);
     markBuilderSections(panel);
+    markLivePreviewPhone(panel.querySelector('[data-wa-form-builder-section="preview"]'));
     applyMobileBuilderStyles(modal, panel, titleElement);
     ensureMobileBuilderControls(modal, panel);
     document.body.classList.add("wa-form-builder-open");

@@ -1,3 +1,30 @@
+body.wa-form-builder-open [data-wa-form-builder-layout] {
+  grid-template-columns: 220px minmax(0, 1fr) minmax(390px, 430px) !important;
+}
+
+body.wa-form-builder-open [data-wa-form-builder-section="preview"] {
+  min-width: min(430px, 100%) !important;
+  overflow-y: auto !important;
+}
+
+body.wa-form-builder-open [data-wa-form-live-preview-phone="true"] {
+  width: min(390px, calc(100vw - 36px)) !important;
+  min-height: min(760px, calc(100dvh - 190px)) !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 12px auto 30px !important;
+  transform: none !important;
+  transform-origin: top center !important;
+}
+
+body.wa-form-builder-open [data-wa-form-live-preview-phone="true"] > :nth-child(4) {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+}
+
 @media (max-width: 768px) {
   html,
   body,
@@ -326,9 +353,20 @@
 
   .MuiModal-root[data-wa-form-builder="open"] [data-wa-form-builder-section="preview"] {
     order: 3 !important;
-    min-height: 360px !important;
+    min-height: 430px !important;
     overflow-x: hidden !important;
-    overflow-y: visible !important;
+    overflow-y: auto !important;
+    padding-bottom: 22px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .MuiModal-root[data-wa-form-builder="open"] [data-wa-form-builder-section="preview"] [data-wa-form-live-preview-phone="true"] {
+    width: min(390px, calc(100vw - 36px)) !important;
+    min-height: min(760px, calc(100dvh - 190px)) !important;
+    max-width: 100% !important;
+    margin: 12px auto 30px !important;
+    transform: none !important;
+    transform-origin: top center !important;
   }
 
   .MuiModal-root[data-wa-form-builder="open"] [data-wa-form-builder-section="separator"] {
